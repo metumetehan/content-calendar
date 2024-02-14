@@ -2,6 +2,8 @@
   "dependencies": {
     "http": "^0.0.1-security",
     "http-server": "^14.1.1",
-    "httpy": "^0.1.16"
+    "httpy": "^0.1.16",
+    "node": "^21.6.1",
+    "vite": "^5.1.1"
   }
 }

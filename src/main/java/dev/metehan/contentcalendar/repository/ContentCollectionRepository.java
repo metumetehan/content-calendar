@@ -5,8 +5,7 @@ import dev.metehan.contentcalendar.model.Status;
 import dev.metehan.contentcalendar.model.Type;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -48,6 +47,17 @@ public class ContentCollectionRepository {
 
     @PostMapping("")
     public void save(@RequestBody Content content) {
+        contentList.removeIf(content1 -> content1.id().equals(content.id()));
         contentList.add(content);
+    }
+
+
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable Integer id) {
+        contentList.removeIf(content -> content.id().equals(id));
+    }
+
+    public boolean existsById(Integer id) {
+        return contentList.stream().anyMatch(content -> content.id().equals(id));
     }
 }

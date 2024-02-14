@@ -18,3 +18,22 @@ Content-Type: application/json
   "dateUpdated": null,
   "url": ""
 }
+
+### Update content by id
+PUT http://localhost:8080/api/content/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "My FIRST POST UPDATED",
+  "desc": "My updated.",
+  "status": "IDEA",
+  "contentType": "ARTICLE",
+  "dateCreated": "2024-02-12T12:48:19.0253537",
+  "dateUpdated": "2024-02-13T09:48:19.0253537",
+  "url": ""
+}
+
+
+### Delete content by id
+DELETE http://localhost:8080/api/content/2
